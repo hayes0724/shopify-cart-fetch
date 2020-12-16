@@ -1,0 +1,45 @@
+{
+  "name": "shopify-cart-fetch",
+  "version": "0.0.1",
+  "description": "Shopify Cart API with zero dependencies, TypeScript, lightweight and modular",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "author": "Eric Hayes",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hayes0724/shopify-cart-fetch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/charto/docts/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "release": "standard-version",
+    "docs": "docts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "docts": "^0.2.0",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "prettier": "^2.2.1",
+    "standard-version": "^9.0.0",
+    "ts-loader": "^8.0.12",
+    "typescript": "4.0.5",
+    "webpack": "^5.10.2",
+    "webpack-cli": "^4.2.0"
+  }
+}
