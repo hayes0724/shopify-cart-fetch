@@ -6,6 +6,10 @@
     {"type":"wrench","section":":wrench: Config"},
     {"type":"test","section":"Tests", "hidden": false},
     {"type":"build","section":":memo: Build System", "hidden": false},
-    {"type":"ci","hidden":true}
-  ]
+    {"type":"ci","hidden":true},
+    {"type":"chore","hidden":true}
+  ],
+  "skip" : {
+
+  }
 }
