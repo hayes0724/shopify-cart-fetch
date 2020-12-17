@@ -1,0 +1,11 @@
+{
+  "types": [
+    {"type":"feat","section":":rocket: Features"},
+    {"type":"fix","section":":bug: Bug Fixes"},
+    {"type":"docs","section":":memo: Documentation"},
+    {"type":"wrench","section":":wrench: Config"},
+    {"type":"test","section":"Tests", "hidden": false},
+    {"type":"build","section":":memo: Build System", "hidden": false},
+    {"type":"ci","hidden":true}
+  ]
+}

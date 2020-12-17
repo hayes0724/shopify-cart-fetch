@@ -1,6 +1,6 @@
 {
   "name": "shopify-cart-fetch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Shopify Cart API with zero dependencies, TypeScript, lightweight and modular",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -15,7 +15,7 @@
     "url": "https://github.com/charto/docts/issues"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
     "build": "webpack",
     "watch": "webpack --watch",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
