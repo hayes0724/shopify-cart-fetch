@@ -1,10 +1,14 @@
 {
-  "name": "shopify-cart-fetch",
-  "version": "0.0.3",
+  "name": "@hayes0724/shopify-cart-fetch",
+  "version": "1.0.0",
   "description": "Shopify Cart API with zero dependencies, TypeScript, lightweight and modular",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.esm.d.ts",
+  "typings": "dist/index.esm.d.ts",
+  "browser": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
+  "unpkg": "dist/index.min.js",
   "author": "Eric Hayes",
   "license": "MIT",
   "repository": {
@@ -12,15 +16,15 @@
     "url": "git+https://github.com/hayes0724/shopify-cart-fetch.git"
   },
   "bugs": {
-    "url": "https://github.com/charto/docts/issues"
+    "url": "https://github.com/hayes0724/shopify-cart-fetch/issues"
   },
   "scripts": {
     "test": "npm run lint",
-    "build": "webpack",
+    "build": "webpack && tsc",
     "watch": "webpack --watch",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "release": "standard-version",
-    "docs": "docts"
+    "docs": "jsdoc -c jsdoc.json"
   },
   "dependencies": {},
   "devDependencies": {
@@ -31,10 +35,12 @@
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
     "babel-loader": "^8.2.2",
+    "better-docs": "^2.3.2",
     "clean-webpack-plugin": "^3.0.0",
     "docts": "^0.2.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
+    "jsdoc": "^3.6.6",
     "prettier": "^2.2.1",
     "standard-version": "^9.0.0",
     "ts-loader": "^8.0.12",

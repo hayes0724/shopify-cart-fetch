@@ -1,0 +1,18 @@
+{
+  "opts": {
+    "template": "better-docs",
+    "destination": "docs/",
+    "encoding": "utf8"
+  },
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "plugins": [
+    "node_modules/better-docs/typescript"
+  ],
+  "source": {
+    "includePattern": "\\.(jsx|js|ts|tsx)$",
+    "include": ["./src"],
+    "excludePattern": "(node_modules/|docs)"
+  }
+}

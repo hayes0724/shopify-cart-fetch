@@ -2,13 +2,15 @@
   "compilerOptions": {
     // Ensure that .d.ts files are created by tsc, but not .js files
     "declaration": true,
-    //"allowJs": true,
+    "allowJs": true,
     //"emitDeclarationOnly": true,
     // Ensure that Babel can safely transpile files in the TypeScript project
-    //"isolatedModules": true,
-    "outDir": "./dist/",
-    "rootDir": "./src/",
-    //"sourceMap": true,
+    "isolatedModules": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    //"declarationDir": "./types",
+    "declarationMap": true,
+    "sourceMap": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -18,8 +20,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports" : true,
     "noEmit": false,
+    "skipLibCheck": true,
     "lib": ["DOM", "ESNext"]
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./node_modules/**", "./node_modules", "webpack.config.js", "dist"]
 }
