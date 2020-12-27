@@ -1,4 +1,10 @@
 /**
+ * Cart Type Definitions
+ * ------------------------------------------------
+ *
+ */
+
+/**
  * The current cart object from Shopify
  * https://shopify.dev/docs/themes/ajax-api/reference/cart#get-cart-js
  */
@@ -88,6 +94,12 @@ export type OptionsWithValues = {
 };
 
 /**
+ * Cart lLine Item Type Definitions
+ * ------------------------------------------------
+ *
+ */
+
+/**
  * Cart item is used for adding an item in the cart. Requires line or id property.
  */
 export type CartItemAdd = {
@@ -107,15 +119,12 @@ export type CartItemUpdateById = {
 export type CartItemUpdate = {
   quantity: number;
   properties?: LineItemProperties;
-} & ({ line: LineItemKey } | { id: CartItemPropertyLine });
+} & ({ line: CartItemIndex } | { id: CartItemPropertyID });
 
 /**
  * Cart item is used for removing an item in the cart. Requires line or id property.
  */
-export type CartItemRemove = { quantity: 0 } & (
-  | { id: CartItemPropertyID }
-  | { line: LineItemKey }
-);
+export type CartItemRemove =  { id: CartItemPropertyID } | { line: CartItemIndex }
 
 /**
  * The id value is the line item's variant_id or the line item's key.
@@ -125,16 +134,16 @@ export type CartItemPropertyID = VariantID | LineItemKey;
 /**
  * The 1-based index position of the item in the cart.
  */
-export type CartItemPropertyLine = number;
+export type CartItemIndex = number;
 
 /**
  * The id value is the line item's variant_id or the line item's key.
  * @see {@link https://shopify.dev/docs/themes/liquid/reference/objects/line_item#line_item-variant_id | ShopifyAPI: variant_id }
  */
-export type VariantID = number;
+export type VariantID = string;
 
 /**
- * The id value is the line item's variant_id or the line item's key.
+ * The line item's key.
  * @see {@link https://shopify.dev/docs/themes/liquid/reference/objects/line_item#line_item-key | ShopifyAPI: line_item.key }
  */
 export type LineItemKey = string;
@@ -146,6 +155,14 @@ export type LineItemKey = string;
 export type LineItemProperties = {
   [index: string]: string;
 };
+
+export type CartItemParams = CartItemAdd | CartItemRemove | CartItemUpdate  | HTMLFormElement
+
+export type CartParams = Attributes | CartState["note"]
+
+export interface LineItemCallback {
+  (lineItem: CartItemParams): Promise<CartLineItem>
+}
 
 /**
  * Shopify cart API routes
@@ -160,3 +177,15 @@ export type CartRoute =
   | "/cart/shipping_rates.json"
   | "/cart/prepare_shipping_rates.json"
   | "/cart/async_shipping_rates.json";
+
+
+/**
+ * Event Type Definitions
+ * ------------------------------------------------
+ *
+ */
+export type EventType = 'cart-add' | 'cart-remove' | 'cart-update' | 'cart-fetch'
+
+export type EventStage = 'start' | 'complete' | 'error'
+
+export type EventData = CartState | CartLineItem
