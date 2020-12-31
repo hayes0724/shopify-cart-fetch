@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/hayes0724/shopify-cart-fetch/compare/v1.0.0...v1.2.0) (2020-12-31)
+
+
+### :rocket: Features
+
+* events added for all cart methods ([21e2465](https://github.com/hayes0724/shopify-cart-fetch/commit/21e24650fe4bec7569bc506aa016e0f991230f06))
+
+
+### :memo: Build System
+
+* dist files added ([495ca30](https://github.com/hayes0724/shopify-cart-fetch/commit/495ca30e8b60d64bad76383536294bf18ca02e54))
+
 ## [1.1.0](https://github.com/hayes0724/shopify-cart-fetch/compare/v1.0.0...v1.1.0) (2020-12-27)
 
 
