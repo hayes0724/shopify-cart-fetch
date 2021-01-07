@@ -64,7 +64,7 @@ export default class Cart {
   private async run(
     type: EventType,
     callback: CallableFunction,
-    data?: CartParams
+    data?: CartParams|CartItemParams
   ): Promise<CartState> {
     this.events.emit(type, "start");
     this.state = await callback(data);
@@ -119,11 +119,11 @@ export default class Cart {
   public clearItems = async (): Promise<CartState> =>
     this.run("cart-update", clearItems);
 
-  public removeItem = async (item: CartItemRemove): Promise<CartLineItem> =>
-    this.runLine("cart-remove", removeItem, item);
+  public removeItem = async (item: CartItemRemove): Promise<CartState> =>
+    this.run("cart-remove", removeItem, item);
 
-  public updateItem = async (item: CartItemUpdate): Promise<CartLineItem> =>
-    this.runLine("cart-update", updateItem, item);
+  public updateItem = async (item: CartItemUpdate): Promise<CartState> =>
+    this.run("cart-update", updateItem, item);
 
   public updateItemById = async (
     item: CartItemUpdateById
@@ -161,5 +161,22 @@ export {
   clearAttributes,
   getNote,
   updateNote,
-  clearNote,
+  clearNote
 };
+
+export type {
+  CartItemParams,
+  CartItemAdd,
+  CartItemRemove,
+  CartItemIndex,
+  CartLineItem,
+  CartState,
+  EventType,
+  LineItemKey,
+  LineItemCallback,
+  CartItemUpdate,
+  CartItemUpdateById,
+  Attributes,
+  CartParams
+};
+

@@ -5,7 +5,7 @@
  */
 import CartEvents from "./lib/events";
 import { addItem, addItemFromForm, clearAttributes, clearItems, clearNote, getAttributes, getNote, getState, removeItem, updateAttributes, updateItem, updateItemById, updateNote } from "./lib/functions";
-import { CartItemAdd, CartItemRemove, CartItemIndex, CartLineItem, CartState, LineItemKey, CartItemUpdate, CartItemUpdateById, Attributes } from "./lib/types";
+import { CartItemParams, CartItemAdd, CartItemRemove, CartItemIndex, CartLineItem, CartState, EventType, LineItemKey, LineItemCallback, CartItemUpdate, CartItemUpdateById, Attributes, CartParams } from "./lib/types";
 /**
  * This class implements all methods from functions.ts, uses events.ts for cart events and maintains cart state.
  * You can also import the functions individually or create your own cart class.
@@ -42,8 +42,8 @@ export default class Cart {
     addItem: (items: CartItemAdd) => Promise<CartLineItem>;
     addItemFromForm: (productForm: HTMLFormElement) => Promise<CartLineItem>;
     clearItems: () => Promise<CartState>;
-    removeItem: (item: CartItemRemove) => Promise<CartLineItem>;
-    updateItem: (item: CartItemUpdate) => Promise<CartLineItem>;
+    removeItem: (item: CartItemRemove) => Promise<CartState>;
+    updateItem: (item: CartItemUpdate) => Promise<CartState>;
     updateItemById: (item: CartItemUpdateById) => Promise<CartLineItem>;
     updateAttributes: (attributes: Attributes) => Promise<CartState>;
     clearAttributes: () => Promise<CartState>;
@@ -52,5 +52,6 @@ export default class Cart {
     updateNote: (note: string) => Promise<CartState>;
     clearNote: () => Promise<CartState>;
 }
-export { addItem, getState, addItemFromForm, clearItems, removeItem, updateAttributes, updateItem, updateItemById, getAttributes, clearAttributes, getNote, updateNote, clearNote, };
+export { addItem, getState, addItemFromForm, clearItems, removeItem, updateAttributes, updateItem, updateItemById, getAttributes, clearAttributes, getNote, updateNote, clearNote };
+export type { CartItemParams, CartItemAdd, CartItemRemove, CartItemIndex, CartLineItem, CartState, EventType, LineItemKey, LineItemCallback, CartItemUpdate, CartItemUpdateById, Attributes, CartParams };
 //# sourceMappingURL=index.esm.d.ts.map

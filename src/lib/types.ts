@@ -178,7 +178,6 @@ export type CartRoute =
   | "/cart/prepare_shipping_rates.json"
   | "/cart/async_shipping_rates.json";
 
-
 /**
  * Event Type Definitions
  * ------------------------------------------------

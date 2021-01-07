@@ -22,7 +22,7 @@ function defaultRequestConfig() {
  * The default method for fetching JSON
  * @param {string} route
  * @param {Data?} data
- * @return {Promise<Return>}
+ * @return {Promise<Resolve>}
  */
 async function post(route, data) {
     const config = {
@@ -33,7 +33,12 @@ async function post(route, data) {
     }
     return await fetch(route, { ...config })
         .then((response) => response.json())
-        .then((json) => json);
+        .then((json) => {
+        if (json.message) {
+            throw json;
+        }
+        return json;
+    });
 }
 export { post };
 //# sourceMappingURL=api.js.map

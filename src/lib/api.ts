@@ -28,8 +28,9 @@ function defaultRequestConfig() {
  * The default method for fetching JSON
  * @param {string} route
  * @param {Data?} data
- * @return {Promise<Return>}
+ * @return {Promise<Resolve>}
  */
+
 async function post<Data, Return>(route: CartRoute, data?: Data): Promise<Return> {
   const config = {
     ...defaultRequestConfig()
@@ -39,7 +40,13 @@ async function post<Data, Return>(route: CartRoute, data?: Data): Promise<Return
   }
   return await fetch(route, {...config})
     .then((response) => response.json())
-    .then((json: Promise<Return>) => json);
+    .then((json) => {
+      if (json.message) {
+        throw json
+      }
+      return json
+    })
+
 }
 
 export {

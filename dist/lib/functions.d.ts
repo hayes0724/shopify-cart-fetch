@@ -32,9 +32,9 @@ export declare function clearItems(): Promise<CartState>;
  * Only items already in your cart can be changed, and only one line item at a time can be changed.
  * @see {@link https://shopify.dev/docs/themes/ajax-api/reference/cart#post-cart-change-js | ShopifyAPI: POST /cart/change.js }
  * @param {CartItemUpdate} item
- * @return {Promise<CartLineItem>}
+ * @return {Promise<CartState>}
  */
-export declare function updateItem(item: CartItemUpdate): Promise<CartLineItem>;
+export declare function updateItem(item: CartItemUpdate): Promise<CartState>;
 /**
  * The /cart/change.js endpoint changes the quantity.
  * Only items already in your cart can be changed, and only one line item at a time can be changed.
@@ -48,9 +48,9 @@ export declare function updateItemById(item: CartItemUpdateById): Promise<CartLi
  * @param {CartItemRemove} item
  * @see {@link https://shopify.dev/docs/themes/ajax-api/reference/cart#post-cart-change-js | ShopifyAPI: POST /cart/change.js }
  * @see {@link https://shopify.dev/docs/themes/liquid/reference/objects/line_item#line_item-key | ShopifyAPI: LineItemKey }
- * @return {Promise<CartLineItem>}
+ * @return {Promise<CartState>}
  */
-export declare function removeItem(item: CartItemRemove): Promise<CartLineItem>;
+export declare function removeItem(item: CartItemRemove): Promise<CartState>;
 /**
  * Get the current cart state from Shopify and return the attributes
  * @return {Promise<CartState["attributes"]>}

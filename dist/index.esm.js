@@ -37,8 +37,8 @@ export default class Cart {
         this.addItem = async (items) => this.runLine("cart-add", addItem, items);
         this.addItemFromForm = async (productForm) => this.runLine("cart-add", addItemFromForm, productForm);
         this.clearItems = async () => this.run("cart-update", clearItems);
-        this.removeItem = async (item) => this.runLine("cart-remove", removeItem, item);
-        this.updateItem = async (item) => this.runLine("cart-update", updateItem, item);
+        this.removeItem = async (item) => this.run("cart-remove", removeItem, item);
+        this.updateItem = async (item) => this.run("cart-update", updateItem, item);
         this.updateItemById = async (item) => this.runLine("cart-update", updateItemById, item);
         this.updateAttributes = async (attributes) => this.run("cart-update", updateAttributes, attributes);
         this.clearAttributes = async () => this.run("cart-update", clearAttributes);
@@ -70,5 +70,5 @@ export default class Cart {
         return lineItem;
     }
 }
-export { addItem, getState, addItemFromForm, clearItems, removeItem, updateAttributes, updateItem, updateItemById, getAttributes, clearAttributes, getNote, updateNote, clearNote, };
+export { addItem, getState, addItemFromForm, clearItems, removeItem, updateAttributes, updateItem, updateItemById, getAttributes, clearAttributes, getNote, updateNote, clearNote };
 //# sourceMappingURL=index.esm.js.map

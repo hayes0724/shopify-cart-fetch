@@ -46,7 +46,7 @@ export async function clearItems() {
  * Only items already in your cart can be changed, and only one line item at a time can be changed.
  * @see {@link https://shopify.dev/docs/themes/ajax-api/reference/cart#post-cart-change-js | ShopifyAPI: POST /cart/change.js }
  * @param {CartItemUpdate} item
- * @return {Promise<CartLineItem>}
+ * @return {Promise<CartState>}
  */
 export async function updateItem(item) {
     return await post("/cart/change.js", item);
@@ -66,7 +66,7 @@ export async function updateItemById(item) {
  * @param {CartItemRemove} item
  * @see {@link https://shopify.dev/docs/themes/ajax-api/reference/cart#post-cart-change-js | ShopifyAPI: POST /cart/change.js }
  * @see {@link https://shopify.dev/docs/themes/liquid/reference/objects/line_item#line_item-key | ShopifyAPI: LineItemKey }
- * @return {Promise<CartLineItem>}
+ * @return {Promise<CartState>}
  */
 export async function removeItem(item) {
     return await post("/cart/change.js", { quantity: 0, ...item });
