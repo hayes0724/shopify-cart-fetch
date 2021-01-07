@@ -1,6 +1,6 @@
 {
   "name": "@hayes0724/shopify-cart-fetch",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Shopify Cart API with zero dependencies, TypeScript, lightweight and modular",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

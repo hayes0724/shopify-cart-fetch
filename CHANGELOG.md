@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/hayes0724/shopify-cart-fetch/compare/v1.2.0...v1.2.1) (2021-01-07)
+
+
+### :bug: Bug Fixes
+
+* updated return types and added exceptions ([e44cebd](https://github.com/hayes0724/shopify-cart-fetch/commit/e44cebd562c7e3b27cc56544c50e20226270cc7c))
+
 ## [1.2.0](https://github.com/hayes0724/shopify-cart-fetch/compare/v1.0.0...v1.2.0) (2020-12-31)
 
 
