@@ -24,10 +24,10 @@ export async function getState(): Promise<CartState> {
  * Use the POST /cart/add.js endpoint to add product to cart.
  * @typedef {function} addItem
  * @see {@link https://shopify.dev/docs/themes/ajax-api/reference/cart#post-cart-add-js | ShopifyAPI: POST /cart/add.js}
- * @param {CartItemAdd} items
- * @return {Promise<CartLineItem>}
+ * @param {CartItemAdd[]} items
+ * @return {Promise<CartLineItem[]>}
  */
-export async function addItem(items: CartItemAdd): Promise<CartLineItem> {
+export async function addItem(items: CartItemAdd[]): Promise<CartLineItem[]> {
   return await post("/cart/add.js", items)
 }
 

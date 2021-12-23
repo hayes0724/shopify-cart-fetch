@@ -75,8 +75,8 @@ export default class Cart {
   private async runLine(
     type: EventType,
     callback: LineItemCallback,
-    data?: CartItemParams
-  ): Promise<CartLineItem> {
+    data?: CartItemParams | CartItemParams[]
+  ): Promise<CartLineItem | CartLineItem[]> {
     this.events.emit(type, "start");
     const lineItem = await callback(data);
     const index = this.findItemIndex(lineItem.key);
@@ -108,7 +108,7 @@ export default class Cart {
   public getState = async (): Promise<CartState> =>
     this.run("cart-fetch", getState);
 
-  public addItem = async (items: CartItemAdd): Promise<CartLineItem> =>
+  public addItem = async (items: CartItemAdd[]): Promise<CartLineItem> =>
     this.runLine("cart-add", addItem, items);
 
   public addItemFromForm = async (

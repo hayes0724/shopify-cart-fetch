@@ -160,8 +160,14 @@ export type CartItemParams = CartItemAdd | CartItemRemove | CartItemUpdate  | HT
 
 export type CartParams = Attributes | CartState["note"]
 
-export interface LineItemCallback {
-  (lineItem: CartItemParams): Promise<CartLineItem>
+export type LineItemCallback = SingleLineItem | MultipleLineItem
+
+export interface SingleLineItem {
+  (items: CartItemParams): Promise<CartLineItem>
+}
+
+export interface MultipleLineItem {
+  (items: CartItemParams[]): Promise<CartLineItem[]>
 }
 
 /**
