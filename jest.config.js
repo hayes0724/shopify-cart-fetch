@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   testMatch: [
     "**/__tests__/**/*.ts",
-    //"!**/__tests__/e2e.test.ts",
+    "!**/__tests__/e2e.test.ts",
     "!**/fixtures/**",
   ],
 };
