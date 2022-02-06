@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/hayes0724/shopify-cart-fetch/compare/v1.2.1...v2.0.0) (2022-02-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed individual function exports
+
+### :memo: Build System
+
+* switched webpack to rollup for builds ([858971f](https://github.com/hayes0724/shopify-cart-fetch/commit/858971f68a7a6bdd7a5c4679c972de2b2c86e9e0))
+
+
+### :rocket: Features
+
+* refactoring and unit tests ([5a48923](https://github.com/hayes0724/shopify-cart-fetch/commit/5a48923679e1835d50125a9562d892ba01af077c))
+
 ### [1.2.1](https://github.com/hayes0724/shopify-cart-fetch/compare/v1.2.0...v1.2.1) (2021-01-07)
 
 
