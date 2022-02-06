@@ -1,13 +1,9 @@
 /**
- * Cart Type Definitions
- * ------------------------------------------------
- *
- */
-
-/**
  * The current cart object from Shopify
  * https://shopify.dev/docs/themes/ajax-api/reference/cart#get-cart-js
  */
+import {ShopifyError} from "./errors";
+
 export type CartState = {
   readonly token: string;
   readonly note: string;
@@ -19,6 +15,8 @@ export type CartState = {
   readonly requires_shipping: boolean;
   readonly currency: string;
   readonly items_subtotal_price: number;
+  readonly original_total_price: number;
+  readonly total_discount: number;
   readonly cart_level_discount_applications: CartLevelDiscountApplications[];
 };
 
@@ -68,6 +66,7 @@ export type CartLineItem = {
   readonly taxable: boolean;
   readonly product_id: number;
   readonly product_has_only_default_variant: boolean;
+  readonly properties: LineItemProperties;
   readonly gift_card: boolean;
   readonly url: string;
   readonly featured_image: FeaturedImage;
@@ -80,6 +79,7 @@ export type CartLineItem = {
   readonly variant_title: string;
   readonly variant_options: string[];
   readonly options_with_values: OptionsWithValues[];
+  readonly line_level_discount_allocations?: LineLevelDiscountAllocation[];
 };
 
 export type FeaturedImage = {
@@ -93,27 +93,29 @@ export type OptionsWithValues = {
   readonly value: string;
 };
 
-/**
- * Cart lLine Item Type Definitions
- * ------------------------------------------------
- *
- */
+export type LineLevelDiscountAllocation = {
+  amount: number;
+  discount_application: DiscountApplication;
+};
 
-/**
- * Cart item is used for adding an item in the cart. Requires line or id property.
- */
+export type DiscountApplication = {
+  type: string;
+  key: string;
+  title: string;
+  description: null;
+  value: string;
+  created_at: string;
+  value_type: string;
+  allocation_method: string;
+  target_selection: string;
+  target_type: string;
+  total_allocated_amount: number;
+};
+
 export type CartItemAdd = {
   id: VariantID;
   quantity?: number;
   properties?: LineItemProperties;
-};
-
-/**
- * Cart item is used for updating an item in the cart. Requires line or id property.
- */
-export type CartItemUpdateById = {
-  id: VariantID;
-  quantity: number;
 };
 
 export type CartItemUpdate = {
@@ -121,10 +123,11 @@ export type CartItemUpdate = {
   properties?: LineItemProperties;
 } & ({ line: CartItemIndex } | { id: CartItemPropertyID });
 
-/**
- * Cart item is used for removing an item in the cart. Requires line or id property.
- */
-export type CartItemRemove =  { id: CartItemPropertyID } | { line: CartItemIndex }
+export type CartItemRemove = { id: CartItemPropertyID } | { line: CartItemIndex };
+
+export type CartItems = CartItemAdd[] | CartItemAdd
+
+export type CartItemsResponse = { items: CartLineItem[] }
 
 /**
  * The id value is the line item's variant_id or the line item's key.
@@ -140,7 +143,7 @@ export type CartItemIndex = number;
  * The id value is the line item's variant_id or the line item's key.
  * @see {@link https://shopify.dev/docs/themes/liquid/reference/objects/line_item#line_item-variant_id | ShopifyAPI: variant_id }
  */
-export type VariantID = string;
+export type VariantID = number | string;
 
 /**
  * The line item's key.
@@ -156,20 +159,6 @@ export type LineItemProperties = {
   [index: string]: string;
 };
 
-export type CartItemParams = CartItemAdd | CartItemRemove | CartItemUpdate  | HTMLFormElement
-
-export type CartParams = Attributes | CartState["note"]
-
-export type LineItemCallback = SingleLineItem | MultipleLineItem
-
-export interface SingleLineItem {
-  (items: CartItemParams): Promise<CartLineItem>
-}
-
-export interface MultipleLineItem {
-  (items: CartItemParams[]): Promise<CartLineItem[]>
-}
-
 /**
  * Shopify cart API routes
  * @see {@link https://shopify.dev/docs/themes/ajax-api/reference/cart | ShopifyAPI: cart }
@@ -184,13 +173,12 @@ export type CartRoute =
   | "/cart/prepare_shipping_rates.json"
   | "/cart/async_shipping_rates.json";
 
-/**
- * Event Type Definitions
- * ------------------------------------------------
- *
- */
-export type EventType = 'cart-add' | 'cart-remove' | 'cart-update' | 'cart-fetch'
+export type CartSettings = {
+  readonly url?: string;
+  readonly postConfig?: RequestInit;
+  readonly updateState?: boolean;
+};
 
-export type EventStage = 'start' | 'complete' | 'error'
+export type ShopifyResponse = CartState | CartItemsResponse | ShopifyError
 
-export type EventData = CartState | CartLineItem
+export type CartEvents = 'cart:requestStarted' | 'cart:requestComplete' | 'cart:ready'

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing methods using the /cart/update.js endpoint clearAttributes calls fetch and the correct default url 1`] = `"{\\"attributes\\":{\\"Gift wrap\\":\\"\\"}}"`;
+
+exports[`Testing methods using the /cart/update.js endpoint clearNote calls fetch and the correct default url 1`] = `"{\\"note\\":\\"\\"}"`;
+
+exports[`Testing methods using the /cart/update.js endpoint updateAttributes calls fetch and the correct default url 1`] = `"{\\"attributes\\":{\\"attribute\\":\\"value\\",\\"gift wrap\\":\\"true\\"}}"`;
+
+exports[`Testing methods using the /cart/update.js endpoint updateNote calls fetch and the correct default url 1`] = `"{\\"note\\":\\"note\\"}"`;

@@ -1,0 +1,197 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>Shopify Cart Fetch</title><meta name="description" content="Documentation for Shopify Cart Fetch"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">Shopify Cart Fetch</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>Shopify Cart Fetch</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#shopify-cart-fetch" id="shopify-cart-fetch" style="color: inherit; text-decoration: none;">
+  <h1>Shopify Cart Fetch</h1>
+</a>
+<p>Shopify Cart API with zero dependencies, written in TypeScript, and under 1kb gzipped.</p>
+
+<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+  <h1>Documentation</h1>
+</a>
+<p>For more detailed documentation, see the <a href="https://hayes0724.github.io/shopify-cart-fetch/">docs</a></p>
+
+<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+  <h1>Install</h1>
+</a>
+<pre><code class="language-shell"><span class="hl-0">yarn add @hayes0724/shopify-cart-fetch</span>
+</code></pre>
+<pre><code class="language-shell"><span class="hl-0">npm install @hayes0724/shopify-cart-fetch</span>
+</code></pre>
+
+<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+  <h1>Usage</h1>
+</a>
+<pre><code class="language-javascript"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">ShopifyCart</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@hayes0724/shopify-cart-fetch&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-4">// use default settings</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">shopifyCart</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">ShopifyCart</span><span class="hl-0">();</span><br/><span class="hl-4">// provide custom settings</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">shopifyCart</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">ShopifyCart</span><span class="hl-0">(</span><span class="hl-2">settings</span><span class="hl-0">);</span>
+</code></pre>
+
+<a href="#cart-state" id="cart-state" style="color: inherit; text-decoration: none;">
+  <h2>Cart state</h2>
+</a>
+<p>Get the cart from Shopify, which is stored in the state property.</p>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartState"><code>Promise&lt;CartState&gt;</code></a></p>
+<pre><code class="language-javascript"><span class="hl-2">shopifyCart</span><br/><span class="hl-0">  .</span><span class="hl-7">getState</span><span class="hl-0">()</span><br/><span class="hl-0">  .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span><br/><br/><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">shopifyCart</span><span class="hl-0">.</span><span class="hl-2">state</span><span class="hl-0">)</span>
+</code></pre>
+
+<a href="#add-items" id="add-items" style="color: inherit; text-decoration: none;">
+  <h2>Add items</h2>
+</a>
+<p>Add one or more items to the cart.</p>
+
+<a href="#parameters" id="parameters" style="color: inherit; text-decoration: none;">
+  <h4>Parameters</h4>
+</a>
+<ul>
+<li>items: <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartItems"><code>CartItems</code></a></li>
+</ul>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartItemsResponse"><code>Promise&lt;CartItemsResponse&gt;</code></a></p>
+<pre><code class="language-javascript"><span class="hl-2">shopifyCart</span><br/><span class="hl-0">  .</span><span class="hl-7">addItem</span><span class="hl-0">({</span><span class="hl-2">id:</span><span class="hl-0"> </span><span class="hl-8">39766656254012</span><span class="hl-0">})</span><br/><span class="hl-0">  .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">lineItems</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">lineItems</span><span class="hl-0">))</span>
+</code></pre>
+<pre><code class="language-javascript"><span class="hl-2">shopifyCart</span><br/><span class="hl-0">  .</span><span class="hl-7">addItem</span><span class="hl-0">([</span><br/><span class="hl-0">    {</span><span class="hl-2">id:</span><span class="hl-0"> </span><span class="hl-8">39766656254012</span><span class="hl-0">},</span><br/><span class="hl-0">    {</span><span class="hl-2">id:</span><span class="hl-0"> </span><span class="hl-8">39766656254013</span><span class="hl-0">}</span><br/><span class="hl-0">  ])</span><br/><span class="hl-0">  .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">lineItems</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">lineItems</span><span class="hl-0">))</span>
+</code></pre>
+
+<a href="#add-item-from-form" id="add-item-from-form" style="color: inherit; text-decoration: none;">
+  <h2>Add item from form</h2>
+</a>
+<p>Adds an item to your cart from a product form. The form must contain an 
+input with name=&quot;id&quot;. If the quantity specified is more than what is available, 
+the promise will be rejected and the cart state will remain unchanged</p>
+
+<a href="#parameters-1" id="parameters-1" style="color: inherit; text-decoration: none;">
+  <h4>Parameters</h4>
+</a>
+<ul>
+<li>form: <code>HTMLFormElement</code></li>
+</ul>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartItemsResponse"><code>Promise&lt;CartItemsResponse&gt;</code></a></p>
+
+<a href="#html" id="html" style="color: inherit; text-decoration: none;">
+  <h3>HTML</h3>
+</a>
+<pre><code class="language-html"><span class="hl-9">&lt;</span><span class="hl-10">form</span><span class="hl-9">&gt;</span><br/><span class="hl-0">  </span><span class="hl-9">&lt;</span><span class="hl-10">input</span><span class="hl-0"> </span><span class="hl-11">type</span><span class="hl-0">=</span><span class="hl-12">&quot;hidden&quot;</span><span class="hl-0"> </span><span class="hl-11">name</span><span class="hl-0">=</span><span class="hl-12">&quot;id&quot;</span><span class="hl-0"> </span><span class="hl-11">value</span><span class="hl-0">=</span><span class="hl-12">&quot;39766656254012&quot;</span><span class="hl-9">&gt;</span><br/><span class="hl-0">  </span><span class="hl-9">&lt;</span><span class="hl-10">input</span><span class="hl-0"> </span><span class="hl-11">type</span><span class="hl-0">=</span><span class="hl-12">&quot;hidden&quot;</span><span class="hl-0"> </span><span class="hl-11">name</span><span class="hl-0">=</span><span class="hl-12">&quot;quantity&quot;</span><span class="hl-0"> </span><span class="hl-11">value</span><span class="hl-0">=</span><span class="hl-12">&quot;1&quot;</span><span class="hl-9">&gt;</span><br/><span class="hl-9">&lt;/</span><span class="hl-10">form</span><span class="hl-9">&gt;</span>
+</code></pre>
+
+<a href="#js" id="js" style="color: inherit; text-decoration: none;">
+  <h3>JS</h3>
+</a>
+<pre><code class="language-javascript"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">form</span><span class="hl-0"> = </span><span class="hl-2">document</span><span class="hl-0">.</span><span class="hl-7">querySelector</span><span class="hl-0">(</span><span class="hl-3">&quot;form&quot;</span><span class="hl-0">)</span><br/><br/><span class="hl-2">form</span><span class="hl-0">.</span><span class="hl-7">addEventListener</span><span class="hl-0">(</span><span class="hl-3">&quot;submit&quot;</span><span class="hl-0">, () </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">addItemFromForm</span><span class="hl-0">(</span><span class="hl-2">form</span><span class="hl-0">)</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">lineItems</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">lineItems</span><span class="hl-0">))</span><br/><span class="hl-0">});</span>
+</code></pre>
+
+<a href="#clear-attributes" id="clear-attributes" style="color: inherit; text-decoration: none;">
+  <h2>Clear attributes</h2>
+</a>
+<p>Clear all cart attributes from Shopify and return the state.</p>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartState"><code>Promise&lt;CartState&gt;</code></a></p>
+<pre><code class="language-javascript"><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">clearAttributes</span><span class="hl-0">()</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span>
+</code></pre>
+
+<a href="#clear-items" id="clear-items" style="color: inherit; text-decoration: none;">
+  <h2>Clear items</h2>
+</a>
+<p>Set all quantities of all line items in the cart to zero.</p>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartState"><code>Promise&lt;CartState&gt;</code></a></p>
+<pre><code class="language-javascript"><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">clearItems</span><span class="hl-0">()</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span>
+</code></pre>
+
+<a href="#clear-note" id="clear-note" style="color: inherit; text-decoration: none;">
+  <h2>Clear note</h2>
+</a>
+<p>Remove the cart note.</p>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartState"><code>Promise&lt;CartState&gt;</code></a></p>
+<pre><code class="language-javascript"><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">clearNote</span><span class="hl-0">()</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span>
+</code></pre>
+
+<a href="#remove-item" id="remove-item" style="color: inherit; text-decoration: none;">
+  <h2>Remove item</h2>
+</a>
+<p>Removes an item from the cart using line item key or product id. </p>
+
+<a href="#parameters-2" id="parameters-2" style="color: inherit; text-decoration: none;">
+  <h4>Parameters</h4>
+</a>
+<ul>
+<li>items: <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartItemRemove"><code>CartItemRemove</code></a></li>
+</ul>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartState"><code>Promise&lt;CartState&gt;</code></a></p>
+<p>Remove an item from cart using a variant id.</p>
+<pre><code class="language-javascript"><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">removeItem</span><span class="hl-0">({</span><span class="hl-2">id:</span><span class="hl-0"> </span><span class="hl-8">39766656254012</span><span class="hl-0">})</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span>
+</code></pre>
+<p>Remove an item from cart using the line number.</p>
+<pre><code class="language-javascript"><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">removeItem</span><span class="hl-0">({</span><span class="hl-2">line:</span><span class="hl-0"> </span><span class="hl-8">0</span><span class="hl-0">})</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span>
+</code></pre>
+
+<a href="#update-attributes" id="update-attributes" style="color: inherit; text-decoration: none;">
+  <h2>Update attributes</h2>
+</a>
+<p>Update the cart attributes.</p>
+
+<a href="#parameters-3" id="parameters-3" style="color: inherit; text-decoration: none;">
+  <h4>Parameters</h4>
+</a>
+<ul>
+<li>attributes: <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#Attributes"><code>Attributes</code></a></li>
+</ul>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartState"><code>Promise&lt;CartState&gt;</code></a></p>
+<pre><code class="language-javascript"><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">updateAttributes</span><span class="hl-0">({</span><span class="hl-3">&#39;gift wrap&#39;</span><span class="hl-2">:</span><span class="hl-0"> </span><span class="hl-3">&#39;true&#39;</span><span class="hl-0">})</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span>
+</code></pre>
+
+<a href="#update-item" id="update-item" style="color: inherit; text-decoration: none;">
+  <h2>Update item</h2>
+</a>
+<p>Changes the quantity and properties object of a cart line item. Only items already in 
+your cart can be changed, and only one line item at a time can be changed.</p>
+
+<a href="#parameters-4" id="parameters-4" style="color: inherit; text-decoration: none;">
+  <h4>Parameters</h4>
+</a>
+<ul>
+<li>item: <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartItemUpdate"><code>CartItemUpdate</code></a></li>
+</ul>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartState"><code>Promise&lt;CartState&gt;</code></a></p>
+<pre><code class="language-javascript"><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">updateItem</span><span class="hl-0">({</span><span class="hl-2">id:</span><span class="hl-0"> </span><span class="hl-8">39766656254012</span><span class="hl-0">, </span><span class="hl-2">quantity:</span><span class="hl-0"> </span><span class="hl-8">3</span><span class="hl-0">})</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span>
+</code></pre>
+
+<a href="#update-note" id="update-note" style="color: inherit; text-decoration: none;">
+  <h2>Update note</h2>
+</a>
+<p>Update or create a cart note.</p>
+
+<a href="#parameters-5" id="parameters-5" style="color: inherit; text-decoration: none;">
+  <h4>Parameters</h4>
+</a>
+<ul>
+<li>note: string</li>
+</ul>
+<p><strong>Returns</strong> <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartState"><code>Promise&lt;CartState&gt;</code></a></p>
+<pre><code class="language-javascript"><span class="hl-0">  </span><span class="hl-2">shopifyCart</span><br/><span class="hl-0">    .</span><span class="hl-7">updateNote</span><span class="hl-0">(</span><span class="hl-3">&quot;updated note&quot;</span><span class="hl-0">)</span><br/><span class="hl-0">    .</span><span class="hl-7">then</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-2">state</span><span class="hl-0">))</span>
+</code></pre>
+
+<a href="#events" id="events" style="color: inherit; text-decoration: none;">
+  <h1>Events</h1>
+</a>
+<p>The cart will create events for requests and when it&#39;s initialized. 
+The cart class and api route are included in all events.</p>
+<ul>
+<li>cart: <a href="https://hayes0724.github.io/shopify-cart-fetch/docs/classes/ShopifyCart.html"><code>ShopifyCart</code></a></li>
+<li>route: <a href="https://hayes0724.github.io/shopify-cart-fetch/modules.html#CartRoute"><code>CartRoute</code></a></li>
+</ul>
+
+<a href="#cartready" id="cartready" style="color: inherit; text-decoration: none;">
+  <h2>cart:ready</h2>
+</a>
+<p>Triggered after Shopify Cart has completed initialising.</p>
+<pre><code class="language-javascript"><span class="hl-2">document</span><span class="hl-0">.</span><span class="hl-7">addEventListener</span><span class="hl-0">(</span><span class="hl-3">&#39;cart:ready&#39;</span><span class="hl-0">, (</span><span class="hl-2">event</span><span class="hl-0">) </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-5">const</span><span class="hl-0"> { </span><span class="hl-6">cart</span><span class="hl-0">, </span><span class="hl-6">route</span><span class="hl-0"> } = </span><span class="hl-2">event</span><span class="hl-0">.</span><span class="hl-2">details</span><br/><span class="hl-0">  </span><span class="hl-4">// Event handling here.</span><br/><span class="hl-0">})</span>
+</code></pre>
+
+<a href="#cartrequeststarted" id="cartrequeststarted" style="color: inherit; text-decoration: none;">
+  <h2>cart:requestStarted</h2>
+</a>
+<p>Triggered after Shopify Cart has completed initialising.</p>
+<pre><code class="language-javascript"><span class="hl-2">document</span><span class="hl-0">.</span><span class="hl-7">addEventListener</span><span class="hl-0">(</span><span class="hl-3">&#39;cart:requestStarted&#39;</span><span class="hl-0">, (</span><span class="hl-2">event</span><span class="hl-0">) </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-5">const</span><span class="hl-0"> { </span><span class="hl-6">cart</span><span class="hl-0">, </span><span class="hl-6">route</span><span class="hl-0"> } = </span><span class="hl-2">event</span><span class="hl-0">.</span><span class="hl-2">details</span><br/><span class="hl-0">  </span><span class="hl-4">// Event handling here.</span><br/><span class="hl-0">})</span>
+</code></pre>
+
+<a href="#cartrequestcomplete" id="cartrequestcomplete" style="color: inherit; text-decoration: none;">
+  <h2>cart:requestComplete</h2>
+</a>
+<p>Triggered after Shopify Cart has completed initialising.</p>
+<pre><code class="language-javascript"><span class="hl-2">document</span><span class="hl-0">.</span><span class="hl-7">addEventListener</span><span class="hl-0">(</span><span class="hl-3">&#39;cart:requestComplete&#39;</span><span class="hl-0">, (</span><span class="hl-2">event</span><span class="hl-0">) </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-5">const</span><span class="hl-0"> { </span><span class="hl-6">cart</span><span class="hl-0">, </span><span class="hl-6">route</span><span class="hl-0"> } = </span><span class="hl-2">event</span><span class="hl-0">.</span><span class="hl-2">details</span><br/><span class="hl-0">  </span><span class="hl-4">// Event handling here.</span><br/><span class="hl-0">})</span>
+</code></pre>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class"><a href="classes/InventoryError.html" class="tsd-kind-icon">Inventory<wbr/>Error</a></li><li class="tsd-kind-class"><a href="classes/ShopifyCart.html" class="tsd-kind-icon">Shopify<wbr/>Cart</a></li><li class="tsd-kind-class"><a href="classes/VariantError.html" class="tsd-kind-icon">Variant<wbr/>Error</a></li><li class="tsd-kind-interface"><a href="interfaces/CartInterface.html" class="tsd-kind-icon">Cart<wbr/>Interface</a></li><li class="tsd-kind-interface"><a href="interfaces/ShopifyError.html" class="tsd-kind-icon">Shopify<wbr/>Error</a></li><li class="tsd-kind-type-alias"><a href="modules.html#Attributes" class="tsd-kind-icon">Attributes</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartEvents" class="tsd-kind-icon">Cart<wbr/>Events</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartItemAdd" class="tsd-kind-icon">Cart<wbr/>Item<wbr/>Add</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartItemIndex" class="tsd-kind-icon">Cart<wbr/>Item<wbr/>Index</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartItemPropertyID" class="tsd-kind-icon">Cart<wbr/>Item<wbr/>PropertyID</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartItemRemove" class="tsd-kind-icon">Cart<wbr/>Item<wbr/>Remove</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartItemUpdate" class="tsd-kind-icon">Cart<wbr/>Item<wbr/>Update</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartItems" class="tsd-kind-icon">Cart<wbr/>Items</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartItemsResponse" class="tsd-kind-icon">Cart<wbr/>Items<wbr/>Response</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartLevelDiscountApplications" class="tsd-kind-icon">Cart<wbr/>Level<wbr/>Discount<wbr/>Applications</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartLineItem" class="tsd-kind-icon">Cart<wbr/>Line<wbr/>Item</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartRoute" class="tsd-kind-icon">Cart<wbr/>Route</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartSettings" class="tsd-kind-icon">Cart<wbr/>Settings</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CartState" class="tsd-kind-icon">Cart<wbr/>State</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DiscountApplication" class="tsd-kind-icon">Discount<wbr/>Application</a></li><li class="tsd-kind-type-alias"><a href="modules.html#FeaturedImage" class="tsd-kind-icon">Featured<wbr/>Image</a></li><li class="tsd-kind-type-alias"><a href="modules.html#LineItemKey" class="tsd-kind-icon">Line<wbr/>Item<wbr/>Key</a></li><li class="tsd-kind-type-alias"><a href="modules.html#LineItemProperties" class="tsd-kind-icon">Line<wbr/>Item<wbr/>Properties</a></li><li class="tsd-kind-type-alias"><a href="modules.html#LineLevelDiscountAllocation" class="tsd-kind-icon">Line<wbr/>Level<wbr/>Discount<wbr/>Allocation</a></li><li class="tsd-kind-type-alias"><a href="modules.html#OptionsWithValues" class="tsd-kind-icon">Options<wbr/>With<wbr/>Values</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ShopifyResponse" class="tsd-kind-icon">Shopify<wbr/>Response</a></li><li class="tsd-kind-type-alias"><a href="modules.html#VariantID" class="tsd-kind-icon">VariantID</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

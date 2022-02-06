@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing methods using the /cart/add.js endpoint and default settings  addItem calls fetch and updates state 1`] = `"{\\"items\\":[{\\"id\\":\\"39766656254012\\"}]}"`;
+
+exports[`Testing methods using the /cart/add.js endpoint and default settings  addItem with multiple items calls fetch and updates state 1`] = `"{\\"items\\":[{\\"id\\":\\"39766656254012\\"},{\\"id\\":\\"39766655926332\\"}]}"`;
+
+exports[`Testing methods using the /cart/add.js endpoint and default settings  addItemFromForm calls fetch and updates state 1`] = `"{\\"id\\":\\"39766656254012\\",\\"quantity\\":\\"1\\"}"`;
+
+exports[`Testing methods using the /cart/add.js endpoint without updating state addItem calls fetch without updating state 1`] = `"{\\"items\\":[{\\"id\\":\\"39766656254012\\"}]}"`;
+
+exports[`Testing methods using the /cart/add.js endpoint without updating state addItemFromForm calls fetch without updating state 1`] = `"{\\"id\\":\\"39766656254012\\",\\"quantity\\":\\"1\\"}"`;

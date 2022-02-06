@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing methods using the /cart/change.js endpoint removeItem calls fetch and updates state 1`] = `"{\\"quantity\\":0,\\"id\\":\\"39766656254012\\"}"`;
+
+exports[`Testing methods using the /cart/change.js endpoint updateItem calls fetch and updates state 1`] = `"{\\"id\\":\\"39766656254012\\",\\"quantity\\":2}"`;
